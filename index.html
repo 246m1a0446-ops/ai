@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GenAI Enterprise Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar">
+  <div class="logo">🤖 GenAI Platform</div>
+
+  <div class="tab" onclick="show('dashboard')">📊 Dashboard</div>
+  <div class="tab" onclick="show('campaign')">📢 Campaign AI</div>
+  <div class="tab" onclick="show('pitch')">🎯 Pitch Generator</div>
+  <div class="tab" onclick="show('lead')">📈 Lead Intelligence</div>
+  <div class="tab" onclick="show('analysis')">🧠 Predictive Insights</div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div class="main">
+
+  <!-- Dashboard -->
+  <div id="dashboard" class="section active">
+    <h1>Sales Intelligence Dashboard</h1>
+
+    <div class="stats">
+      <div class="stat"><h2 id="leads"></h2>Total Leads</div>
+      <div class="stat"><h2 id="conversion"></h2>Conversion</div>
+      <div class="stat"><h2 id="revenue"></h2>Revenue</div>
+    </div>
+
+    <div class="card">
+      <canvas id="chart"></canvas>
+    </div>
+  </div>
+
+  <!-- Campaign -->
+  <div id="campaign" class="section">
+    <h1>AI Campaign Generator</h1>
+    <div class="card">
+      <input id="cProduct" placeholder="Product / Service">
+      <input id="cAudience" placeholder="Target Audience">
+      <input id="cGoal" placeholder="Campaign Goal">
+      <button class="btn" onclick="generateCampaign()">Generate Strategy</button>
+      <div id="campaignOutput"></div>
+    </div>
+  </div>
+
+  <!-- Pitch -->
+  <div id="pitch" class="section">
+    <h1>AI Sales Pitch</h1>
+    <div class="card">
+      <input id="pProduct" placeholder="Product Name">
+      <input id="pSegment" placeholder="Customer Segment">
+      <textarea id="pProblem" placeholder="Customer Problem"></textarea>
+      <button class="btn" onclick="generatePitch()">Generate Pitch</button>
+      <div id="pitchOutput"></div>
+    </div>
+  </div>
+
+  <!-- Lead -->
+  <div id="lead" class="section">
+    <h1>Lead Intelligence</h1>
+    <div class="card">
+      Budget <input type="range" id="lBudget" min="1" max="10">
+      Interest <input type="range" id="lInterest" min="1" max="10">
+      feedback <input type="range" id="lUrgency" min="1" max="10">
+      rate <input type="range" id="lRate" min="1" max="10">
+      <button class="btn" onclick="scoreLead()">Evaluate Lead</button>
+      <div id="leadOutput"></div>
+    </div>
+  </div>
+
+  <!-- Analysis -->
+  <div id="analysis" class="section">
+    <h1>Predictive Business Insights</h1>
+    <div class="card">
+      <textarea id="bData" placeholder="Paste sales data"></textarea>
+      <button class="btn" onclick="analyze()">Analyze</button>
+      <div id="analysisOutput"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- JavaScript -->
+<script src="script.js"></script>
+
+</body>
+</html>
